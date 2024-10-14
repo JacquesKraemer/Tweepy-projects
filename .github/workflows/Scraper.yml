@@ -1,8 +1,8 @@
 name: run dolar_scraper.py
 
 on:
-  schedule:
-    - cron: "14 21 * * 1-5"
+  push:
+    branches: [main]
 
 jobs:
   build:
