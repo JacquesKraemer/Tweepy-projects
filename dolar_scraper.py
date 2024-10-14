@@ -74,10 +74,10 @@ print(texto_cotizaciones)
 
 # Crear un tweet
 try:
-    consumer_key = os.environ["consumer_key"]
-    consumer_secret = os.environ["consumer_secret"]
-    access_token = os.environ["access_token"]
-    access_token_secret = os.environ["access_token_secret"]
+    CONSUMER_KEY = os.environ["CONSUMER_KEY"]
+    CONSUMER_SECRET = os.environ["CONSUMER_SECRET"]
+    ACCESS_TOKEN = os.environ["ACCESS_TOKEN"]
+    ACCESS_TOKEN_SECRET = os.environ["ACCESS_TOKEN_SECRET"]
 
     client = tweepy.Client(
         consumer_key=consumer_key, consumer_secret=consumer_secret,
