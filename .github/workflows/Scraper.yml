@@ -2,7 +2,7 @@ name: run dolar_scraper.py
 
 on:
   schedule:
-    - cron: "0 */2 * * *"
+    - cron: "0 11-18 * * 1-5"
 
 jobs:
   build:
