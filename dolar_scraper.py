@@ -2,6 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 import pandas as pd
 import tweepy
+import os
 
 url = "https://dolarhoy.com/"
 dolar_hoy = requests.get(url)
@@ -72,14 +73,18 @@ texto_cotizaciones = f"Informe cambiario, {hora_cotización}:\n{bloque_texto}"
 print(texto_cotizaciones)
 
 # Crear un tweet
-consumer_key =
-consumer_secret =
-access_token =
-access_token_secret =
+try:
+    consumer_key = os.environ["consumer_key"]
+    consumer_secret = os.environ["consumer_secret"]
+    access_token = os.environ["access_token"]
+    access_token_secret = os.environ["access_token_secret"]
 
-client = tweepy.Client(
-    consumer_key=consumer_key, consumer_secret=consumer_secret,
-    access_token=access_token, access_token_secret=access_token_secret
-)
+    client = tweepy.Client(
+        consumer_key=consumer_key, consumer_secret=consumer_secret,
+        access_token=access_token, access_token_secret=access_token_secret
+    )
 
-response = client.create_tweet(text=texto_cotizaciones)
+    response = client.create_tweet(text=texto_cotizaciones)
+
+except KeyError:
+    pass
