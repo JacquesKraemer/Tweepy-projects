@@ -1,8 +1,8 @@
 name: run dolar_scraper.py
 
 on:
-  schedule:
-    - cron: '0 0 * * 1' # At 00:00 on Monday
+  push:
+    branches: [main]
 
 jobs:
   build:
@@ -15,7 +15,7 @@ jobs:
       - name: setup python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.9' # install the python version needed
+          python-version: '3.11.4' # install the python version needed
           
       - name: install python packages
         run: |
@@ -24,18 +24,9 @@ jobs:
           
       - name: execute py script # run main.py
         env:
-          SOME_SECRET: ${{ secrets.SOME_SECRET }}
-        run: python main.py
-          
-      - name: commit files
-        run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git add -A
-          git diff-index --quiet HEAD || (git commit -a -m "updated logs" --allow-empty)
-          
-      - name: push changes
-        uses: ad-m/github-push-action@v0.6.0
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: main 
+          bearer_token : ${{secrets.bearer_token}}
+          consumer_key : ${{secrets.consumer_key}}
+          consumer_secret : ${{secrets.consumer_secret}}
+          access_token : ${{secrets.access_token}}
+          access_token_secret : ${{secrets.access_token_secret}}
+        run: python dolar_scraper.py
