@@ -87,4 +87,5 @@ try:
     response = client.create_tweet(text=texto_cotizaciones)
 
 except KeyError:
+    print("No se subió el tweet por problemas con las keys")
     pass
