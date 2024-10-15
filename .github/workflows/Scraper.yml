@@ -22,9 +22,8 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
           
-      - name: execute py script # run main.py
+      - name: execute py script 
         env:
-          bearer_token : ${{secrets.bearer_token}}
           consumer_key : ${{secrets.consumer_key}}
           consumer_secret : ${{secrets.consumer_secret}}
           access_token : ${{secrets.access_token}}
