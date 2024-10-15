@@ -25,21 +25,8 @@ jobs:
           
       - name: execute py script 
         env:
-          consumer_key : ${{ secrets.consumer_key }}
-          consumer_secret : ${{ secrets.consumer_secret }}
-          access_token : ${{ secrets.access_token }}
-          access_token_secret : ${{ secrets.access_token_secret }}
-        run: python dolar_scraper.py
-        
-      - name: commit files
-        run: |
-          git config --local user.email "jacqueskraemer2001@gmail.com"
-          git config --local user.name "jacques kraemer"
-          git add -A
-          git diff-index --quiet HEAD || (git commit -a -m "updated logs" --allow-empty)
-          
-      - name: push changes
-        uses: ad-m/github-push-action@v0.6.0
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: main   
+          consumer_key : ${{ secrets.CONSUMER_KEY }}
+          consumer_secret : ${{ secrets.CONSUMER_SECRET }}
+          access_token : ${{ secrets.ACCESS_TOKEN }}
+          access_token_secret : ${{ secrets.ACCESS_TOKEN_SECRET }}
+        run: python dolar_scraper.py 
