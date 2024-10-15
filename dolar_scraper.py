@@ -84,7 +84,7 @@ try:
         access_token=access_token, access_token_secret=access_token_secret
     )
 
-    response = client.create_tweet(text="try....")
+    response = client.create_tweet(text=texto_cotizaciones)
 except KeyError:
     print("Error con las keys: NO SE PUDO ACCEDER A X")
     pass
