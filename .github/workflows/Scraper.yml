@@ -1,8 +1,6 @@
 name: run dolar_scraper.py
 
 on:
-  push:
-    branches: [main]
   workflow_dispatch:
 
 jobs:
