@@ -70,8 +70,6 @@ bloque_texto = "\n".join(lista_textos)
 # Agregar la hora de cotización al inicio del bloque de texto
 texto_cotizaciones = f"Informe cambiario, {hora_cotización}:\n{bloque_texto}"
 
-print(texto_cotizaciones)
-
 # Crear un tweet
 try:
     consumer_key = os.environ["consumer_key"]
@@ -79,6 +77,8 @@ try:
     access_token = os.environ["access_token"]
     access_token_secret = os.environ["access_token_secret"]
 
+    print("Keys encontradas, intentando subir el tweet")
+    
     client = tweepy.Client(
         consumer_key=consumer_key, consumer_secret=consumer_secret,
         access_token=access_token, access_token_secret=access_token_secret
