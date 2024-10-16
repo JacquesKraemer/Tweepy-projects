@@ -61,14 +61,14 @@ for index, row in df_cotizaciones.iterrows():
     venta = row['Venta']
     variacion = row['Variación']
 
-    texto = f"El {nombre}, cotiza a {venta} con una variación del {variacion}%."
+    texto = f"{nombre}, cotiza a {venta} ({variacion}%)."
 
     lista_textos.append(texto)
 
 bloque_texto = "\n".join(lista_textos)
 
 # Agregar la hora de cotización al inicio del bloque de texto
-texto_cotizaciones = f"Informe cambiario, {hora_cotización}:\n{bloque_texto}"
+texto_cotizaciones = f"Informe cambiario,\n{bloque_texto}"
 
 # Crear un tweet
 try:
