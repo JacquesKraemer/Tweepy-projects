@@ -54,6 +54,13 @@ else:
     print("Error al obtener el HTML")
 
 df_cotizaciones = pd.DataFrame(datos_cotizaciones)
+df_cotizaciones = df_cotizaciones.sort_values(by="Variación", ascending=False) 
+
+try:
+    df_cotizaciones.loc[df_cotizaciones['Nombre'] == 'Dólar MEP/Bolsa', 'Nombre'] = 'Dólar MEP'
+except:
+    pass
+
 lista_textos = []
 
 for index, row in df_cotizaciones.iterrows():
