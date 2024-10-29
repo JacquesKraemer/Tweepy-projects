@@ -56,26 +56,27 @@ else:
 df_cotizaciones = pd.DataFrame(datos_cotizaciones)
 df_cotizaciones = df_cotizaciones.sort_values(by="Variación", ascending=False) 
 
-try:
-    df_cotizaciones.loc[df_cotizaciones['Nombre'] == 'Dólar MEP/Bolsa', 'Nombre'] = 'Dólar MEP'
-except:
-    pass
-
 lista_textos = []
 
 for index, row in df_cotizaciones.iterrows():
     nombre = row['Nombre']
+    
+    if nombre == "Dólar MEP/Bolsa":
+        nombre = "Dólar MEP"
+    else:
+        pass    
+    
     venta = row['Venta']
     variacion = row['Variación']
-
-    texto = f"{nombre}, cotiza a {venta} ({variacion}%)."
-
+    emoji = "📈" if variacion > 0 else "📉"
+    
+    texto = f"{nombre}, cotiza a {venta} | {emoji} {variacion}%"
     lista_textos.append(texto)
 
 bloque_texto = "\n".join(lista_textos)
 
 # Agregar la hora de cotización al inicio del bloque de texto
-texto_cotizaciones = f"Informe cambiario,\n{bloque_texto}"
+texto_cotizaciones = f"Dólar #Argentina 🇦🇷 \n{bloque_texto}"
 
 # Crear un tweet
 try:
