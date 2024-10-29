@@ -70,7 +70,7 @@ for index, row in df_cotizaciones.iterrows():
     variacion = row['Variación']
     emoji = "📈" if variacion > 0 else "📉"
     
-    texto = f"{nombre}, cotiza a {venta} | {emoji} {variacion}%"
+    texto = f"{nombre}, cotiza a {venta} |{emoji} {variacion}%"
     lista_textos.append(texto)
 
 bloque_texto = "\n".join(lista_textos)
