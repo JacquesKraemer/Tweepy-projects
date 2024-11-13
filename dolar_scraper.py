@@ -41,15 +41,13 @@ if dolar_hoy.status_code == 200:
                 valor_variacion = variacion.text.strip().replace('%', '').replace(',', '.')
                 valor_variacion = float(valor_variacion)
 
-            # Guardar datos en la lista si variación es distinto a cero
-            if valor_variacion != 0:
-                datos_cotizaciones.append({
-                    "Nombre": title.text.strip() if title else "No disponible",
-                    "Venta": valor_venta,
-                    "Variación": valor_variacion
-                })
-            else:
-                pass
+            # Guardar datos          
+            datos_cotizaciones.append({
+                "Nombre": title.text.strip() if title else "No disponible",
+                "Venta": valor_venta,
+                "Variación": valor_variacion
+            })
+
 else:
     print("Error al obtener el HTML")
 
