@@ -24,7 +24,7 @@ En un contexto económico dinámico, contar con información precisa y accesible
 
 - **Lenguaje:** Python 🐍
 - **Automatización:** GitHub Actions
-- **Scraping:** Playwright / BeautifulSoup (dependiendo de la implementación)
+- **Scraping:** Requests / BeautifulSoup (dependiendo de la implementación)
 - **Base de datos:** PostgreSQL (opcional, para almacenamiento histórico de datos)
 - **API de Twitter:** Tweepy
 
