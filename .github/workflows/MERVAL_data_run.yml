@@ -26,7 +26,7 @@ jobs:
       - name: execute py script 
         env:
           iol_user_name : ${{secrets.iol_user_name}}
-          iol_contraseña : ${{secrets.iol_contraseña}}
+          iol_contraseña : ${{secrets.iol_contrasena}}
           api_key : ${{secrets.api_key}}
           api_key_secret : ${{secrets.api_key_secret}}
           consumer_key : ${{secrets.consumer_key}}
