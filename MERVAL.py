@@ -3,7 +3,6 @@ import pandas as pd
 import json
 import matplotlib.pyplot as plt
 from matplotlib.gridspec import GridSpec
-import seaborn as sns
 import tweepy
 import os
 
