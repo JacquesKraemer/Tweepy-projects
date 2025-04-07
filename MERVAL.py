@@ -123,7 +123,7 @@ plt.savefig('merval_variacion.png', dpi=300, bbox_inches='tight')
 plt.close()  # Cierra la figura para liberar memoria
 
 
-# -------Lista de KEYS provicional
+# -------Lista de KEYS
 consumer_key = os.environ["consumer_key"]
 consumer_secret = os.environ["consumer_secret"]
 
@@ -184,7 +184,7 @@ else:
     bajas_text = "📈 Top tres bajas del día: Stonks"
 
 tweet_text = (
-    f"MERVAL al cierre - Variación diaria 🇦🇷\n\n"
+    f"MERVAL - Variación % 🇦🇷\n\n"
     f"{subas_text}\n"
     f"{bajas_text}\n\n"
     
