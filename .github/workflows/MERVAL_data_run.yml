@@ -1,0 +1,36 @@
+name: run MERVAL.py
+
+on:
+  schedule:
+    - cron: '30 17 * * 1-5'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: checkout repo content
+        uses: actions/checkout@v2 # checkout the repository content to github runner
+
+      - name: setup python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11.4' # install the python version needed
+          
+      - name: install python packages
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          
+      - name: execute py script 
+        env:
+          iol_user_name : ${{secrets.iol_user_name}}
+          iol_contraseña : ${{secrets.iol_contraseña}}
+          api_key : ${{secrets.api_key}}
+          api_key_secret : ${{secrets.api_key_secret}}
+          consumer_key : ${{secrets.consumer_key}}
+          consumer_secret : ${{secrets.consumer_secret}}
+          access_token : ${{secrets.access_token}}
+          access_token_secret : ${{secrets.access_token_secret}}
+        run: python dolar_scraper.py 
