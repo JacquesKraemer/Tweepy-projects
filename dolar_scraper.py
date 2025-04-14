@@ -59,7 +59,7 @@ lista_textos = []
 for index, row in df_cotizaciones.iterrows():
     nombre = row['Nombre']
     
-    if nombre == "Dólar Oficial":     
+    if nombre in ["Dólar Oficial", "Dólar Tarjeta"]:     
         venta = row['Venta']
         variacion = row['Variación']
         emoji = "📈" if variacion > 0 else "📉"
