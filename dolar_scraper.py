@@ -21,7 +21,7 @@ if dolar_hoy.status_code == 200:
     datos_cotizaciones = []
 
     for cotizacion in cotizaciones:
-        title = cotizacion.find("a", class_="title")
+        title = cotizacion.find("a", class_="titleText")
         values = cotizacion.find("div", class_="values")
 
         if values:
