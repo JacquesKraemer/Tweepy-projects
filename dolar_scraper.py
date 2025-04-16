@@ -73,7 +73,7 @@ for index, row in df_cotizaciones.iterrows():
 bloque_texto = "\n".join(lista_textos)
 
 # Agregar la hora de cotización al inicio del bloque de texto
-texto_cotizaciones = f"Dólar #Argentina 🇦🇷 \n{bloque_texto}"
+texto_cotizaciones = f"Valor dólar #Argentina 🇦🇷 \n{bloque_texto}"
 
 # Crear un tweet
 try:
