@@ -59,16 +59,13 @@ lista_textos = []
 for index, row in df_cotizaciones.iterrows():
     nombre = row['Nombre']
     
-    if nombre in ["Dólar Oficial", "Dólar Tarjeta", "Dólar MEP"]:     
-        venta = row['Venta']
-        variacion = row['Variación']
-        emoji = "📈" if variacion > 0 else "📉"
-        
-        texto = f"{nombre}, cotiza a {venta} |{emoji} {variacion}%"
-        lista_textos.append(texto)
+    venta = row['Venta']
+    variacion = row['Variación']
+    emoji = "📈" if variacion > 0 else "📉"
     
-    else:
-        pass 
+    texto = f"{nombre}, cotiza a {venta} |{emoji} {variacion}%"
+    lista_textos.append(texto)
+
 
 bloque_texto = "\n".join(lista_textos)
 
