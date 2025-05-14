@@ -184,7 +184,7 @@ else:
     bajas_text = "📈 Top tres bajas del día: Stonks"
 
 tweet_text = (
-    f"MERVAL - Variación % 🇦🇷\n\n"
+    f"Mercado argentino - MERVAL - 🇦🇷\n\n"
     f"{subas_text}\n"
     f"{bajas_text}\n\n"
     
