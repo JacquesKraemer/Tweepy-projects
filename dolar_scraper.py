@@ -3,6 +3,7 @@ from bs4 import BeautifulSoup
 import pandas as pd
 import tweepy
 import os
+from datetime import datetime
 
 url = "https://dolarhoy.com/"
 dolar_hoy = requests.get(url)
@@ -66,13 +67,14 @@ for index, row in df_cotizaciones.iterrows():
     texto = f"{nombre}, cotiza a {venta} |{emoji} {variacion}%"
     lista_textos.append(texto)
 
-
 bloque_texto = "\n".join(lista_textos)
+hora = datetime.now().strftime("%H:%M")
 
-# Agregar la hora de cotización al inicio del bloque de texto
-texto_cotizaciones = f"Valor dólar #Argentina 🇦🇷 \n\n{bloque_texto}"
+#
+texto_cotizaciones = f"Valor dólar #Argentina 🇦🇷 - {hora} \n\n{bloque_texto}"
 
-# Crear un tweet
+
+# Crear el tweet
 try:
     consumer_key = os.environ["consumer_key"]
     consumer_secret = os.environ["consumer_secret"]
@@ -87,6 +89,8 @@ try:
     )
 
     response = client.create_tweet(text=texto_cotizaciones)
-except KeyError:
-    print("Error con las keys: NO SE PUDO ACCEDER A X")
+except Exception as e:
+    print(f"Error con las keys: NO SE PUDO ACCEDER A X --> {e}")
     pass
+
+
