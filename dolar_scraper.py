@@ -55,6 +55,9 @@ else:
 df_cotizaciones = pd.DataFrame(datos_cotizaciones)
 df_cotizaciones = df_cotizaciones.sort_values(by="Variación", ascending=False) 
 
+df_cotizaciones["Nombre"] = df_cotizaciones["Nombre"].map(lambda x: str(x).replace("Dólar", "") if isinstance(x, str)else x)
+df_cotizaciones["Nombre"] = df_cotizaciones["Nombre"].str.upper()
+
 lista_textos = []
 
 for index, row in df_cotizaciones.iterrows():
@@ -71,7 +74,7 @@ bloque_texto = "\n".join(lista_textos)
 hora = datetime.now().strftime("%H:%M")
 
 #
-texto_cotizaciones = f"Valor dólar #Argentina 🇦🇷 - {hora} \n\n{bloque_texto}"
+texto_cotizaciones = f"Dólar #Argentina 🇦🇷 - {hora} \n\n{bloque_texto}"
 
 
 # Crear el tweet
