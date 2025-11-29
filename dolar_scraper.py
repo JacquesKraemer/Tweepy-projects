@@ -4,6 +4,7 @@ import pandas as pd
 import tweepy
 import os
 from datetime import datetime
+from sqlalchemy import create_engine
 
 url = "https://dolarhoy.com/"
 dolar_hoy = requests.get(url)
@@ -97,3 +98,18 @@ except Exception as e:
     pass
 
 
+#
+db_url = os.getenv("NEON_DB_URL")
+
+engine = create_engine(db_url)
+
+df_cotizaciones.to_sql(
+    name="dolar",           # nombre de la tabla (la crea si no existe)
+    con=engine,
+    if_exists="append",         # o "replace" si quieres borrar y volver a crear
+    index=False,
+    method="multi",             # mucho más rápido
+    chunksize=10_000            # obligatorio para tablas grandes en Neon
+)
+
+print("DataFrame subido correctamente")
