@@ -99,17 +99,17 @@ except Exception as e:
 
 
 #
-db_url = os.getenv("NEON_DB_URL")
+#db_url = os.getenv("NEON_DB_URL")
 
-engine = create_engine(db_url)
+#engine = create_engine(db_url)
 
-df_cotizaciones.to_sql(
-    name="dolar2",           # nombre de la tabla (la crea si no existe)
-    con=engine,
-    if_exists="append",         # o "replace" si quieres borrar y volver a crear
-    index=False,
-    method="multi",             # mucho más rápido
-    chunksize=10_000            # obligatorio para tablas grandes en Neon
-)
+#df_cotizaciones.to_sql(
+#    name="dolar2",           # nombre de la tabla (la crea si no existe)
+    #con=engine,
+    #if_exists="append",         # o "replace" si quieres borrar y volver a crear
+    #index=False,
+    #method="multi",             # mucho más rápido
+    #chunksize=10_000            # obligatorio para tablas grandes en Neon
+#)
 
-print("DataFrame subido correctamente")
+#print("DataFrame subido correctamente")
