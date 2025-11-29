@@ -104,7 +104,7 @@ db_url = os.getenv("NEON_DB_URL")
 engine = create_engine(db_url)
 
 df_cotizaciones.to_sql(
-    name="dolar",           # nombre de la tabla (la crea si no existe)
+    name="dolar2",           # nombre de la tabla (la crea si no existe)
     con=engine,
     if_exists="append",         # o "replace" si quieres borrar y volver a crear
     index=False,
