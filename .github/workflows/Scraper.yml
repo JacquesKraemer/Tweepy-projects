@@ -29,4 +29,5 @@ jobs:
           consumer_secret : ${{secrets.consumer_secret}}
           access_token : ${{secrets.access_token}}
           access_token_secret : ${{secrets.access_token_secret}}
+          NEON_DB_URL: ${{ secrets.NEON_DB_URL }}
         run: python dolar_scraper.py 
