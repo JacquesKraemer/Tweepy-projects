@@ -2,7 +2,9 @@ name: run dolar_scraper.py
 
 on:
   schedule:
-    - cron: '30 13,14,16,17,18,19 * * 1-5'
+    - cron: '35 10,11,13,14,15,16,17,18 * * 1-5'
+      timezone: 'America/Argentina/Buenos_Aires'
+
   workflow_dispatch:
 
 jobs:
