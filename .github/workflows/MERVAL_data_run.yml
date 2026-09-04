@@ -2,7 +2,9 @@ name: run MERVAL.py
 
 on:
   schedule:
-    - cron: '30 14,16,17,18,19,20 * * 1-5'
+    - cron: '35 10,11,13,14,15,16,17 * * 1-5'
+      timezone: 'America/Argentina/Buenos_Aires'
+
   workflow_dispatch:
 
 jobs:
